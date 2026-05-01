@@ -1,0 +1,6 @@
+*.md
+*.png
+*.pyc
+__pycache__/
+.venv/
+.streamlit/
