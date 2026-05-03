@@ -3,8 +3,7 @@ import pandas as pd
 import hashlib
 import json
 import concurrent.futures
-from datetime import datetime, timezone
-
+from datetime import datetime, timezone , timedelta
 import requests
 from streamlit_autorefresh import st_autorefresh
 from core.database import get_records_by_device
@@ -122,7 +121,8 @@ if decrypt_future is not None and decrypt_future.done():
     if new_decrypted:
         st.session_state["records_fp"] = decrypt_target_fp
         st.session_state["decrypted_records"] = new_decrypted
-        st.session_state["last_decrypt_at"] = datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M:%S")
+        IST=timezone(timedelta(hours=5, minutes=30))  # Example: IST timezone
+        st.session_state["last_decrypt_at"] = datetime.now(IST).astimezone().strftime("%Y-%m-%d %H:%M:%S")
 
     st.session_state["decrypt_future"] = None
     st.session_state["decrypt_target_fp"] = None
@@ -161,7 +161,8 @@ if not decrypted_records:
     if maybe:
         st.session_state["records_fp"] = current_fp
         st.session_state["decrypted_records"] = maybe
-        st.session_state["last_decrypt_at"] = datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M:%S")
+        IST=timezone(timedelta(hours=5, minutes=30))  # Example: IST timezone
+        st.session_state["last_decrypt_at"] = datetime.now(IST).strftime("%Y-%m-%d %H:%M:%S")
         decrypted_records = maybe
         cached_fp = current_fp
     else:
