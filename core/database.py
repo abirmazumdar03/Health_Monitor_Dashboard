@@ -1,8 +1,6 @@
 import streamlit as st
 from pymongo import MongoClient
 
-#import streamlit as st
-#from pymongo import MongoClient
 
 @st.cache_resource
 def _get_collection():
