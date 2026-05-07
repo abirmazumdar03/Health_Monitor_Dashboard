@@ -1,20 +1,6 @@
 import streamlit as st
 from pymongo import MongoClient
 
-"""def get_records_by_device(device_id: str):
-    uri = "mongodb://abirmazumdar14798_db_user:PI1234@ac-8i8t1do-shard-00-00.2awuqsz.mongodb.net:27017,ac-8i8t1do-shard-00-01.2awuqsz.mongodb.net:27017,ac-8i8t1do-shard-00-02.2awuqsz.mongodb.net:27017/?ssl=true&replicaSet=atlas-gjt5jw-shard-0&authSource=admin&appName=Cluster0"
-    client = MongoClient(uri)
-    db = client["medical_data_vault"]
-    col = db["health_events"]
-
-    cursor = col.find(
-        {"meta.device_id": device_id},
-        {"_id": 0}  # remove Mongo ID
-    ).sort("meta.event_date", -1)
-
-    return list(cursor)"""
-
-
 #import streamlit as st
 #from pymongo import MongoClient
 
